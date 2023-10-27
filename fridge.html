@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> E06 Refrigerator Display App </title>
+    <meta charset="UTF-8">
+    <style>
+        .floatCenter {
+            width: 600px;
+            height: 750px;
+            margin: 0px auto;
+            background-color: ghostwhite;
+            border-style: solid;
+        }
+        .division {
+            border: solid black;
+            border-width: 5px;
+            padding: 10px; /* Increased padding for better appearance */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .fullWidth {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" class="floatCenter">
+        <h1 style="text-align: center;">Refrigerator Display</h1>
+
+        <div id="div1" class="division">
+            <h2> Refrigerator Control </h2>
+            <button id="onButton" onclick="toggleRefrigerator(true)">On</button>
+            <button id="offButton" onclick="toggleRefrigerator(false)">Off</button>
+        </div>
+
+        <div id="div2" class="division" style="display: none;">
+            <h2> Current Time </h2>
+            <p id="clock"></p>
+            <button onclick="toggleDivision('div2')">Close Current Time</button>
+        </div>
+
+        <div id="div3" class="division" style="display: none;">
+            <h2> Internal Temperature </h2>
+            <img src="https://fahrenheittocelsius.org/wp-content/webp/37_Fahrenheit_to_Celsius.webp" id="image1" width="400px" height="200px">
+            <button onclick="toggleDivision('div3')">Close Internal Temperature</button>
+        </div>
+
+        <div id="div4" class="division" style="display: none;">
+            <h2> Refrigerator Contents </h2>
+            <img src="https://i.pinimg.com/originals/88/cf/9b/88cf9b32a20060d41aa64a4b11baa839.jpg" id="image2" width="400px" height="400px">
+            <button onclick="toggleDivision('div4')">Close Refrigerator Contents</button>
+        </div>
+
+        <div id="div5" class="division" style="display: none;">
+            <h2> Netflix </h2>
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*8BtlgpxyjOPaLZXO6pVD0Q.jpeg" id="image2" width="400px" height="200px">
+            <a href="https://www.netflix.com/" target="Netflix"> Watch Netflix </a>
+            <button onclick="toggleDivision('div5')">Close Netflix</button>
+        </div>
+
+        <div id="div6" class="division" style="display: none;">
+            <h2> Google Browser </h2>
+	     <img src="https://s3-alpha.figma.com/hub/file/2656292959/68209aee-0c27-4733-83bf-1da0c8a65fa6-cover.png" id="image2" width="400px" height="200px">
+            <a href="https://www.google.com/" target="Google"> Open Browser <a>
+            <button onclick="toggleDivision('div6')">Close Google Browser</button>
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        <small> <mark> &copy; T. Lee October 7, 2023 </mark></small>
+    </footer>
+
+    <script>
+        // On Startup
+        let isRefrigeratorOn = false;
+
+        function toggleRefrigerator(on) {
+            isRefrigeratorOn = on;
+            const divsToToggle = document.querySelectorAll('div[id^="div"]');
+            divsToToggle.forEach((div) => {
+                if (div.id !== 'div1') {
+                    div.style.display = isRefrigeratorOn ? 'block' : 'none';
+                }
+            });
+        }
+
+        function toggleDivision(divisionId) {
+            const division = document.getElementById(divisionId);
+            division.style.display = division.style.display === 'none' ? 'block' : 'none';
+        }
+
+        const onButton = document.getElementById('onButton');
+        const offButton = document.getElementById('offButton');
+        const clock = document.getElementById('clock');
+
+        // Update Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            clock.textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
