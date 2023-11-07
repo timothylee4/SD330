@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> E06 Refrigerator Display App </title>
+    <title>E06 Refrigerator Display App</title>
     <meta charset="UTF-8">
     <style>
         .floatCenter {
@@ -28,47 +28,90 @@
         <h1 style="text-align: center;">Refrigerator Display</h1>
 
         <div id="div1" class="division">
-            <h2> Refrigerator Control </h2>
+            <h2>Refrigerator Control</h2>
             <button id="onButton" onclick="toggleRefrigerator(true)">On</button>
             <button id="offButton" onclick="toggleRefrigerator(false)">Off</button>
         </div>
 
         <div id="div2" class="division" style="display: none;">
-            <h2> Current Time </h2>
+            <h2>Current Time</h2>
             <p id="clock"></p>
+            <button onclick="toggleTimeFormat()">Toggle Time Format</button>
             <button onclick="toggleDivision('div2')">Close Current Time</button>
         </div>
 
+        <div id="div7" class="division" style="display: none;">
+            <h2>Today's Forecast: Heavy Downpours All Day &#x1F327;</h2>
+            <button onclick="toggleDivision('div7')">Close Forecast</button>
+        </div>
+
         <div id="div3" class="division" style="display: none;">
-            <h2> Internal Temperature </h2>
-            <img src="https://fahrenheittocelsius.org/wp-content/webp/37_Fahrenheit_to_Celsius.webp" id="image1" width="400px" height="200px">
+            <h2>Internal Temperature</h2>
+            <p id="temperatureDisplay">Current temperature: <span id="temperature">37</span> °F</p>
             <button onclick="toggleDivision('div3')">Close Internal Temperature</button>
+            <button onclick="increaseTemperature()">Increase Temperature</button>
+            <button onclick="decreaseTemperature()">Decrease Temperature</button>
+            <button onclick="toggleTemperatureUnit()">Change Units</button>
+        </div>
+
+        <div id="div8" class="division" style="display: none;">
+            <h2>Minute Timer</h2>
+            <button onclick="startTimer()">Start Timer</button>
+            <p> Time left: <span id="countdown"></span></p>
+            <audio id="alert-sound">
+            <source src="alarm.mp3" type="audio/mpeg">
+        </div>
+
+        <div id="div9" class="division" style="display: none;">
+            <h2>Shopping List</h2>
+            <ul id="shoppingList">
+            	<li>Chocolate Milk</li>
+            	<li>Ground Beef</li>
+            	<li>Bread</li>
+            	<li>Eggs</li>
+            	<li>Frozen Fruit</li>
+            </ul>
+            <input type="text" id="newItem" placeholder="Add an item">
+            <button onclick="addItem()">Add</button>
+            <button onclick="toggleDivision('div9')">Close Shopping List</button>
         </div>
 
         <div id="div4" class="division" style="display: none;">
-            <h2> Refrigerator Contents </h2>
+            <h2>Refrigerator Contents</h2>
             <img src="https://i.pinimg.com/originals/88/cf/9b/88cf9b32a20060d41aa64a4b11baa839.jpg" id="image2" width="400px" height="400px">
             <button onclick="toggleDivision('div4')">Close Refrigerator Contents</button>
         </div>
 
         <div id="div5" class="division" style="display: none;">
-            <h2> Netflix </h2>
+            <h2>TV Screen</h2>
             <img src="https://miro.medium.com/v2/resize:fit:1400/1*8BtlgpxyjOPaLZXO6pVD0Q.jpeg" id="image2" width="400px" height="200px">
-            <a href="https://www.netflix.com/" target="Netflix"> Watch Netflix </a>
+            <a href="https://www.netflix.com/" target="Netflix">Watch Netflix</a>
+            <button onclick="openTvScreen()">Open TV Screen Display</button>
             <button onclick="toggleDivision('div5')">Close Netflix</button>
         </div>
 
         <div id="div6" class="division" style="display: none;">
-            <h2> Google Browser </h2>
-	     <img src="https://s3-alpha.figma.com/hub/file/2656292959/68209aee-0c27-4733-83bf-1da0c8a65fa6-cover.png" id="image2" width="400px" height="200px">
-            <a href="https://www.google.com/" target="Google"> Open Browser <a>
+            <h2>Google Browser</h2>
+            <img src="https://s3-alpha.figma.com/hub/file/2656292959/68209aee-0c27-4733-83bf-1da0c8a65fa6-cover.png" id="image2" width="400px" height="200px">
+            <a href="https://www.google.com/" target="Google">Open Browser</a>
+            <button onclick="openGoogleBrowser()">Open Google Browser</button>
             <button onclick="toggleDivision('div6')">Close Google Browser</button>
         </div>
+
+        <div id="div10" class="division" style="display: none;">
+            <h2>Music Player</h2>
+            <audio id="evangelionAudio">
+            	<source src="evangelion_opening.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="playMusic()">Play: A Cruel Angel's Thesis by Yoko Takahashi </button>
+            <button onclick="toggleDivision('div10')">Close Music</button>
+        </div>
+
     </div>
 
     <footer>
         <hr>
-        <small> <mark> &copy; T. Lee October 7, 2023 </mark></small>
+        <small><mark>&copy; T. Lee October 7, 2023</mark></small>
     </footer>
 
     <script>
@@ -90,19 +133,120 @@
             division.style.display = division.style.display === 'none' ? 'block' : 'none';
         }
 
-        const onButton = document.getElementById('onButton');
-        const offButton = document.getElementById('offButton');
-        const clock = document.getElementById('clock');
+        let is24Hour = false;
 
-        // Update Clock
+        function toggleTimeFormat() {
+            is24Hour = !is24Hour;
+            updateClock();
+        }
+
         function updateClock() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString();
+            let timeString;
+
+            if (is24Hour) {
+                timeString = now.toLocaleTimeString('en-US', { hour12: false });
+            } else {
+                timeString = now.toLocaleTimeString('en-US');
+            }
+
+            const clock = document.getElementById('clock');
             clock.textContent = timeString;
         }
 
         setInterval(updateClock, 1000);
         updateClock();
+
+        let temperature = 37; // Initial temperature in Fahrenheit
+        let isFahrenheit = true; // Temperature unit set to Fahrenheit
+
+        function increaseTemperature() {
+            // Implement logic to increase temperature
+            if (temperature < 100) {
+                temperature++;
+                updateTemperatureDisplay();
+            }
+        }
+
+        function decreaseTemperature() {
+            // Implement logic to decrease temperature
+            if (temperature > 0) {
+                temperature--;
+                updateTemperatureDisplay();
+            }
+        }
+
+        function toggleTemperatureUnit() {
+            // Implement logic to change temperature units
+            isFahrenheit = !isFahrenheit;
+            updateTemperatureDisplay();
+        }
+
+        function updateTemperatureDisplay() {
+            // Convert temperature based on selected unit
+            let tempValue = temperature;
+            let tempUnit = "°F";
+
+            if (!isFahrenheit) {
+                tempValue = ((temperature - 32) * 5) / 9;
+                tempUnit = "°C";
+            }
+
+            // Update the displayed temperature
+            document.getElementById("temperature").textContent = tempValue.toFixed(1);
+            document.getElementById("temperatureDisplay").innerHTML = `Current temperature: <span id="temperature">${tempValue.toFixed(1)}</span> ${tempUnit}`;
+        }
+
+
+        function startTimer() {
+            var timeLeft = 60; // Set 60 seconds countdown
+            var countdownElement = document.getElementById("countdown");
+            var alertSound = document.getElementById("alert-sound");
+
+            var countdownInterval = setInterval(function() {
+                var minutes = (timeLeft / 60) | 0;
+                var seconds = timeLeft % 60;
+                countdownElement.innerText = minutes + "m " + seconds + "s";
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerText = "Expired";
+                    alertSound.play();
+                } else {
+                    timeLeft--;
+                }
+            }, 1000); // Update every second
+        }
+
+function addItem() {
+    var newItem = document.getElementById('newItem').value;
+
+    if (newItem !== '') {
+        var shoppingList = document.getElementById('shoppingList');
+        var listItem = document.createElement('li');
+        listItem.appendChild(document.createTextNode(newItem));
+        shoppingList.appendChild(listItem);
+        document.getElementById('newItem').value = ''; // Clear the input after adding
+    }
+}
+
+
+function playMusic() {
+	var audio = document.getElementById("evangelionAudio");
+	audio.play();
+}
+
+function openGoogleBrowser() {
+    // Play the switchclick sound
+    var switchClickAudio = new Audio('switchclick.mp3');
+    switchClickAudio.play();
+}
+
+function openTvScreen() {
+    var switchClickAudio = new Audio('switchclick.mp3');
+    switchClickAudio.play();
+}
+
     </script>
 </body>
 </html>
