@@ -1,0 +1,267 @@
+{
+    "courses": {
+        "280": {
+            "courseNumber": 280,
+            "courseTitle": "Modern Africa",
+            "credits": 3,
+            "courseSubject": "History",
+            "professor": "Michael Panzer",
+            "building": "Fontaine",
+            "room": "103",
+            "textbooks": {
+                "1": {
+                    "title": "Human Rights in Africa",
+                    "ISBN": "9781139060950",
+                    "publisher": "Cambridge University Press",
+                    "edition": 1,
+                    "author": "Bonny Ibhawoh"
+                },
+                "2": {
+                    "title": "Witchcraft and Colonial Rule in Kenya, 1900–1955",
+                    "ISBN": "9780511997914",
+                    "publisher": "Cambridge University Press",
+                    "edition": 1,
+                    "author": "Katherine Luongo"
+                }
+		"3": {
+                    "title": "Age of Concrete: Housing and the Shape of Aspiration in the Capital of Mozambique",
+                    "ISBN": "9780821446751",
+                    "publisher": "Ohio University Press",
+                    "edition": 1,
+                    "author": "David Morton"
+		 },
+                "4": {
+                    "title": "Betting on the Africans : John F. Kennedy's courting of African nationalist leaders",
+                    "ISBN": "9780199380718",
+                    "publisher": "Oxford University Press",
+                    "edition": 1,
+                    "author": "Philip E. Muehlenbeck"
+		 },
+                "5": {
+                    "title": "Queering Colonial Natal",
+                    "ISBN": "9781517905187",
+                    "publisher": "Univ Of Minnesota Press",
+                    "edition": 1,
+                    "author": "T. J. Tallie"
+                }
+            }
+        },
+
+        "101": {
+            "courseNumber": 101,
+            "courseTitle": "Philosophical Perspectives",
+            "credits": 3,
+            "courseSubject": "Philosophy",
+            "professor": "Joseph Campisi",
+            "building": "Music",
+            "room": "3202",
+            "textbooks": {
+                "1": {
+                    "title": "Five Dialogues",
+                    "ISBN": "9780872206335",
+                    "publisher": "Hackett Publishing Company",
+                    "edition": 2,
+                    "author": "Plato"
+                  },
+                "2": {
+                    "title": "The Handbook",
+                    "ISBN": "9780915145690",
+                    "publisher": "Hackett Publishing Company",
+                    "edition": 1,
+                    "author": "Epictetus"
+                  },
+                "3": {
+                    "title": "The Art of Happiness",
+                    "ISBN": "9780143107217",
+                    "publisher": "Penguin Classics",
+                    "edition": 1,
+                    "author": "Epicurus"
+                  },
+                "4": {
+                    "title": "On Free Choice of the Will",
+                    "ISBN": "9780872201880",
+                    "publisher": "Hackett Publishing Company",
+                    "edition": 1,
+                    "author": "Augustine"
+                  },
+                "5": {
+                    "title": "Discourse on Method and Meditations on First Philosophy",
+                    "ISBN": "9780872204201",
+                    "publisher": "Hackett Publishing Company",
+                    "edition": 4,
+                    "author": "Rene Descartes"
+                  },
+                "6": {
+                    "title": "Fear and Trembling",
+                    "ISBN": "9780140444490",
+                    "publisher": "Penguin Classics",
+                    "edition": 1,
+                    "author": "Soren Kierkegaard"
+                  },
+                "7": {
+                    "title": "Existentialism Is a Humanism",
+                    "ISBN": "9780300115468",
+                    "publisher": "Yale University Press",
+                    "edition": 1,
+                    "author": "Jean-Paul Sartre"
+                }
+            }
+        },
+
+        "203": {
+            "courseNumber": 203,
+            "courseTitle": "Music",
+            "credits": 3,
+            "courseSubject": "Music",
+            "professor": "Frieren White",
+            "building": "Music",
+            "room": "3204",
+            "textbooks": {
+                "1": {
+                    "title": "The Piano: How to Strike Fear into the Hearts of Men",
+                    "ISBN": "1111111111111",
+                    "publisher": "Twinleaf Press",
+                    "edition": 2,
+                    "author": "Cynthia Platinum"
+                  },
+                "2": {
+                    "title": "Analysis of the Lake Theme",
+                    "ISBN": "2222222222222",
+                    "publisher": "Twinleaf Press",
+                    "edition": 1,
+                    "author": "Cyrus Black"
+                }
+            }
+        },
+
+        "240": {
+            "courseNumber": 240,
+            "courseTitle": "Tax Tutorial",
+            "credits": 3,
+            "courseSubject": "Business",
+            "professor": "Jonathan Shell",
+            "building": "Dyson",
+            "room": "105",
+            "textbooks": {
+                "1": {
+                    "title": "Taxes For Dummies",
+                    "ISBN": "9781119858454",
+                    "publisher": "For Dummies",
+                    "edition": 1,
+                    "author": "Eric Tyson"
+                  },
+                "2": {
+                    "title": "McGraw Hill's Taxation of Individuals and Business Entities",
+                    "ISBN": "9781265725266",
+                    "publisher": "McGraw Hill",
+                    "edition": 15,
+                    "author": "Brian Spilker"
+                }   
+            }
+        },
+
+        "107": {
+            "courseNumber": 107,
+            "courseTitle": "Tracking Macros",
+            "credits": 3,
+            "courseSubject": "Physical Education",
+            "professor": "Sam Son",
+            "building": "McCann",
+            "room": "112",
+            "textbooks": {
+                "1": {
+                    "title": "Introduction to Human Nutrition",
+                    "ISBN": "9781119476979",
+                    "publisher": "Wiley-Blackwell",
+                    "edition": 3,
+                    "author": "Susan A. Lanham-New"
+                  },
+                "2": {
+                    "title": "The New Encyclopedia of Modern Bodybuilding : The Bible of Bodybuilding, Fully Updated and Revised",
+                    "ISBN": "9780684857213",
+                    "publisher": "Simon & Schuster",
+                    "edition": 1,
+                    "author": "Arnold Schwarzenegger"
+                }
+            }
+        },
+
+        "260": {
+            "courseNumber": 260,
+            "courseTitle": "Studio Band",
+            "credits": 3,
+            "courseSubject": "Music",
+            "professor": "Terence Fletcher",
+            "building": "Music",
+            "room": "3204",
+            "textbooks": {
+                "1": {
+                    "title": "Jazz",
+                    "ISBN": "9780393068610",
+                    "publisher": "W. W. Norton & Company",
+                    "edition": 1,
+                    "author": "Gary Giddins"
+                  },
+                "2": {
+                    "title": "Jazz Theory",
+                    "ISBN": "9780367321963",
+                    "publisher": "Routledge",
+                    "edition": 2,
+                    "author": "Dariusz Terefenko"
+                }
+            }
+        },
+
+        "270": {
+            "courseNumber": 270,
+            "courseTitle": "Study of the World Wars",
+            "credits": 3,
+            "courseSubject": "History",
+            "professor": "Jackie Glaze",
+            "building": "Dyson",
+            "room": "102",
+            "textbooks": {
+                "1": {
+                    "title": "The Great War: A Combat History of the First World War",
+                    "ISBN": "9780199976270",
+                    "publisher": "Oxford University Press",
+                    "edition": 1,
+                    "author": "Peter Hart"
+                  },
+                "2": {
+                    "title": "World War II: A History in Documents",
+                    "ISBN": "9780195338126",
+                    "publisher": "Oxford University Press",
+                    "edition": 1,
+                    "author": "James H. Madison"
+                }
+            }
+        },
+
+        "310": {
+            "courseNumber": 310,
+            "courseTitle": "Turn-based Strategies",
+            "credits": 3,
+            "courseSubject": "Psychology",
+            "professor": "Joshua Song",
+            "building": "Dyson",
+            "room": "219",
+            "textbooks": {
+                "1": {
+                    "title": "The Art Of War",
+                    "ISBN": "9781599869773",
+                    "publisher": "Filiquarian",
+                    "edition": 1,
+                    "author": "Sun Tzu"
+                  },
+                "2": {
+                    "title": "Contemporary Strategy Analysis",
+                    "ISBN": "9781119120841",
+                    "publisher": "Wiley",
+                    "edition": 9,
+                    "author": "Robert M. Grant"
+                }
+            }
+        }
+    }
+}
