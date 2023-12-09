@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title> FoxBooks-Books</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="foxbooks.html"> FoxBooks</a></h1>
+        <nav>
+            <ul>
+                <li><a href="foxbooks.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="404.html">About</a></li>
+                <li><a href="404.html">Holiday Shopping</a></li>
+                <li><a href="404.html">Membership</a></li>
+                <li><a href="404.html">Wishlist</a></li>
+                <li><a href="404.html">My Account</a></li>
+                <li><a href="404.html">Gift Cards</a></li>
+                <li><a href="404.html">Bestsellers</a></li>
+                <li><a href="404.html">Coupons & Deals</a></li>
+                <li><a href="404.html">Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <ul class="breadcrumb">
+            <li><a href="foxbooks.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+        </ul>
+    
+        <h2> Here are the books for your course!</h2>
+        <ul id="coursesList"></ul>
+    </main>
+
+    <footer>
+        <hr>
+        <small> <mark> &copy; T. Lee December 11, 2023 </mark></small>
+    </footer>
+
+    <script>
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://timothylee4.github.io/SD330//foxbooks.json');
+                const data = await response.json();
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const courseNumber = urlParams.get('courseNumber');
+
+                const filteredTextbooks = data.courses
+                    .filter(course => course.courseNumber == courseNumber)
+                    .flatMap(course => course.textbooks);
+
+                const coursesList = document.getElementById('coursesList');
+                let htmlString = '';
+
+                filteredTextbooks.forEach(textbook => {
+                    htmlString += `<div>
+                        <h3>${textbook.title}</h3>
+                        <p><strong>Author:</strong> ${textbook.author}</p>
+                        <p><strong>ISBN:</strong> ${textbook.ISBN}</p>
+                        <p><strong>Publisher:</strong> ${textbook.publisher}</p>
+                        <p><strong>Edition:</strong> ${textbook.edition}</p>
+                    </div>`;
+                });
+
+                coursesList.innerHTML = htmlString;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    </script>
+</body>
+</html>
